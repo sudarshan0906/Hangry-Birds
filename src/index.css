@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+
+.main-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
