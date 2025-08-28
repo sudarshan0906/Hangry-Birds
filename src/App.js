@@ -1,19 +1,38 @@
 // App.js
-import React, { useState } from "react";
-import LandingPage from "./LandingPage"; // You’ll create this file
-import MainApp from "./MainApp";         // The one you just shared
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import React, { useState, useEffect } from "react"; 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage";
+import MainApp from "./MainApp";
+import OrderPage from "./OrderPage";
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    setLoggedIn(true);
-  };
-
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    const stored = localStorage.getItem("loggedIn") === "true";
+    setLoggedIn(stored);
+  }, []);
   return (
-    <>
-      {loggedIn ? <MainApp /> : <LandingPage onLogin={handleLogin} />}
-    </>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            loggedIn ? (
+              <MainApp />
+            ) : (
+              <LandingPage onLogin={() => setLoggedIn(true)} />
+            )
+          }
+        />
+        <Route path="/login" element={<LandingPage />} />
+        <Route path="/home" element={<MainApp />} />
+        <Route path="/order" element={<OrderPage />} />
+      </Routes>
+    </Router>
   );
 }
 

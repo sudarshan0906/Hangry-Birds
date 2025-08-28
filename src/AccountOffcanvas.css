@@ -1,0 +1,36 @@
+.offcanvas-body.account-details {
+  text-align: left !important;
+  padding: 20px;
+  
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+.account-logo {
+  width: 70px;
+  height: 60px;
+}
+
+.account-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #d63384; /* matches your pink theme */
+  font-weight: bolder;
+ color: black;
+}
+
+.account-details p {
+  margin: 0 0 8px;
+  word-break: break-word;
+}
+
+.logout-btn-container .btn-danger {
+  margin-top: 0px; 
+}

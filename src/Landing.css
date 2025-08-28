@@ -174,27 +174,11 @@ body {
         margin-left: 145px;
       }
       .log {
-        margin-top: 85px !important;
-        margin-bottom: 40px !important;
+        margin-top: 75px !important;
         margin-left: 275px;
       }
 
-      .terms {
-        text-align: left;
-        font-size: small;
-        color: #555;
-        line-height: 1.5;
-      }
-
-      .terms a {
-        color: #ff6f00;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .terms a:hover {
-        text-decoration: underline;
-      }
+      
 
       .offcanvas-body {
         display: flex;
@@ -212,28 +196,42 @@ body {
         border: 1px solid #ccc;
       }
 
-      .log button {
-        padding: 10px 20px;
-        font-weight: bold;
-      }
-      .offcanvas-body {
-        padding: 30px 0px 0px 0px;
-      }
+     /* Left-align everything in the offcanvas body */
+.offcanvas-body {
+  text-align: left !important;
+}
 
-      .terms {
-        text-align: left;
-        font-size: small;
-        color: #555;
-        line-height: 1.5;
-        width: 100%;
-        margin: 0 !important;
-        padding: 0 !important;
-        margin-top: -100px !important;
-      }
+/* Make sure paragraph and link texts inside offcanvas are also left */
+.offcanvas-body p,
+.offcanvas-body a,
+.offcanvas-body input,
+.offcanvas-body textarea {
+  text-align: left !important;
+}
 
-      .terms p {
-        font-size: small !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: left !important;
-      }
+/* account.css */
+.auth-switch {
+  text-align: left !important;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  margin-top: -50px;
+}
+.auth-switch span {
+  white-space: nowrap; 
+}
+
+.auth-switch a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+.auth-switch p{
+  font-size: medium;
+}
+      

@@ -5,10 +5,47 @@ import "./Landing.css";
 function LandingPage() {
   const [showApp, setShowApp] = useState(false);
   const [warning,setWarning] =useState();
+const [mode, setMode] = useState("login"); // 'login' or 'signup'
+const [form, setForm] = useState({
+  phone: "",
+  name: "",
+  email: "",
+  pincode: "",
+  address: ""
+});
 
-  const handleLogin = () => {
+  const handleSignup = () => {
+  const { name, email, phone, pincode, address } = form;
+  if (!name || !email || !phone || !pincode || !address) {
+    alert("Please fill all the fields");
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem("users") || "{}");
+  users[phone] = { name, email, phone, pincode, address };
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("hangryUser", JSON.stringify(users[phone]));
+  localStorage.setItem("loggedIn", "true");
+  setShowApp(true);
+};
+
+const handleLogin = () => {
+  const { phone } = form;
+  if (!phone) {
+    alert("Please enter phone number");
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem("users") || "{}");
+  if (users[phone]) {
+    localStorage.setItem("hangryUser", JSON.stringify(users[phone]));
+    localStorage.setItem("loggedIn", "true");
     setShowApp(true);
-  };
+  } else {
+    alert("User not found! Please Sign Up first.");
+  }
+};
+
   const handleFind = () => {
         const isfind=false;
         if(!isfind)
@@ -83,27 +120,99 @@ function LandingPage() {
           </div>
 
           <div className="offcanvas-body">
-            <h3>Login or create an account</h3>
-            <div className="Phone">
-              <input
-                type="text"
-                placeholder="Phone number"
-                className="form-control"
-              />
-            </div>
-            <div className="log">
-              <button className="btn btn-dark" onClick={handleLogin}>
-                Login
-              </button>
-            </div>
-            <div className="terms">
-              <p>
-                By continuing, you agree to our{" "}
-                <a href="#">Terms of Service</a> and{" "}
-                <a href="#">Privacy Policy</a>.
-              </p>
-            </div>
-          </div>
+  <h3>{mode === "signup" ? "Create an account" : "Login"}</h3>
+
+  {/* Common Phone Field */}
+  <div className="mb-3">
+    <input
+      type="text"
+      placeholder="Phone number"
+      className="form-control"
+      value={form.phone}
+      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+    />
+  </div>
+
+  {/* Extra fields for Sign Up */}
+  {mode === "signup" && (
+    <>
+      <div className="mb-3">
+        <input
+          type="text"
+          placeholder="Name"
+          className="form-control"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+        />
+      </div>
+      <div className="mb-3">
+        <input
+          type="email"
+          placeholder="Email"
+          className="form-control"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+      </div>
+      <div className="mb-3">
+        <input
+          type="text"
+          placeholder="Pincode"
+          className="form-control"
+          value={form.pincode}
+          onChange={(e) => setForm({ ...form, pincode: e.target.value })}
+        />
+      </div>
+      <div className="mb-3">
+        <textarea
+          placeholder="Address"
+          className="form-control"
+          value={form.address}
+          onChange={(e) => setForm({ ...form, address: e.target.value })}
+        />
+      </div>
+    </>
+  )}
+
+  <div className="log">
+    <button className="btn btn-dark" onClick={mode === "signup" ? handleSignup : handleLogin}>
+      {mode === "signup" ? "Sign Up" : "Login"}
+    </button>
+  </div>
+
+  <div className="auth-switch">
+  {mode === "signup" ? (
+    <span>
+      Already have an account?{" "}
+      <a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          setMode("login");
+        }}
+      >
+        Login
+      </a>
+    </span>
+  ) : (
+    <span>
+      New here?{" "}
+      <a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          setMode("signup");
+        }}
+      >
+        Create an account
+      </a>
+    </span>
+  )}
+</div>
+
+
+</div>
+
         </div>
       </div>
 
