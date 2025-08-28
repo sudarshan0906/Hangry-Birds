@@ -5,7 +5,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import OrderPage from "./OrderPage";
 import AccountOffcanvas from './AccountOffcanvas';
 
-function App() {
+function MainApp() {
   const [quantities, setQuantities] = useState({});
   const totalItems = Object.values(quantities).reduce((sum, qty) => sum + qty, 0);
   const [pincode, setPincode] = useState("");
@@ -290,4 +290,4 @@ function App() {
 );
 }
 
-export default App;
+export default MainApp;

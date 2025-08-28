@@ -238,28 +238,28 @@ const handleLogin = () => {
         <a className="l2" href="https://www.swiggy.com/city/bangalore">
           <p className="pop2">Bangalore</p>
         </a>
-        <a class="l2" href="https://www.swiggy.com/city/chennai"
+        <a className="l2" href="https://www.swiggy.com/city/chennai"
             ><p class="pop1">Chennai</p></a
           >
-          <a class="l2" href="https://www.swiggy.com/city/delhi"
+          <a className="l2" href="https://www.swiggy.com/city/delhi"
             ><p class="pop2">Delhi</p></a
           >
-          <a class="l2" href="https://www.swiggy.com/city/gurgaon"
+          <a className="l2" href="https://www.swiggy.com/city/gurgaon"
             ><p class="pop1">Gurgaon</p></a
           >
-          <a class="l2" href="https://www.swiggy.com/city/hyderabad"
+          <a className="l2" href="https://www.swiggy.com/city/hyderabad"
             ><p class="pop2">Hyderabad</p></a
           >
-          <a class="l2" href="https://www.swiggy.com/city/kolkata"
+          <a className="l2" href="https://www.swiggy.com/city/kolkata"
             ><p class="pop1">Kolkata</p></a
           >
-          <a class="l2" href="https://www.swiggy.com/city/mumbai"
+          <a className="l2" href="https://www.swiggy.com/city/mumbai"
             ><p class="pop2">Mumbai</p></a
           >
-          <a class="l2" href="https://www.swiggy.com/city/pune"
+          <a className="l2" href="https://www.swiggy.com/city/pune"
             ><p class="pop1">Pune</p></a
           >
-          <a class="l2" href="https://www.swiggy.com/auth#city-links"
+          <a className="l2" href="https://www.swiggy.com/auth#city-links"
             ><p class="pop2">& more.</p></a
           >
       </div>

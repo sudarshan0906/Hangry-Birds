@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import MainApp from "./MainApp";
 import OrderPage from "./OrderPage";
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
